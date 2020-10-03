@@ -69,16 +69,20 @@ if (place_meeting(x, y, bullet)) {
 				var part = instance_create_depth(xx, yy, 0, obj_Particle)
 				part.image_index = 1
 				if (Wisp) {
-					part.image_index = 4
+					if (Golden) {
+						part.image_index = 5
+					} else {
+						part.image_index = 4
+					}
+				} else if (Golden) {
+					part.image_index = 2
 				}
 				part.Life = 10
 				part.Direction = bullet.Direction + random_range(-45, 45)
 			}
 			g.Kills += 1
-			if (g.Seen >= 10 && irandom_range(0, 5) == 0) {
+			if (Golden) {
 				instance_create_depth(x, y, 0, obj_Gold)
-			} else if (g.Seen >= 13 && irandom_range(0, 5) == 0) {
-				instance_create_depth(x, y, 0, obj_Heart)
 			}
 			instance_destroy()
 			exit
@@ -92,7 +96,11 @@ if (place_meeting(x, y, bullet)) {
 if (Wisp && FrameCount % 3 == 0) {
 	var part = instance_create_depth(x, y - 32, 0, obj_Particle)
 	part.Direction = random_range(60, 120)
-	part.image_index = 4
+	if (Golden) {
+		part.image_index = 5
+	} else {
+		part.image_index = 4
+	}
 	part.Life = 10
 }
 

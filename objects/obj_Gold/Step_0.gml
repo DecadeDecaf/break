@@ -21,9 +21,9 @@ if (dis < 32) {
 	if (g.Seen >= 4) {
 		if (g.Seen >= 9) {
 			if (g.Seen >= 12) {
-				value = 4
+				value = 8
 			} else {
-				value = 3
+				value = 4
 			}
 		} else {
 			value = 2

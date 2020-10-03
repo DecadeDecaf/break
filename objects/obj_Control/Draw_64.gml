@@ -11,6 +11,7 @@ function draw_dropshadow(xx, yy, str, size, col) {
 var white = $FFFFFF
 var gray = $B4B4B4
 var green = $4B9833
+var red = $5D55F5
 
 if (room == rm_Menu) {
 	draw_set_font(fnt_Regular)
@@ -74,63 +75,130 @@ if (room == rm_Game) {
 		draw_set_font(fnt_Code)
 		draw_set_halign(fa_left)
 		var code = ""
+		var newcode = ""
+		var important = ds_list_create()
+		if (g.Code >= 7) {
+			code += "\nplayer_set_firingspeed(18)"
+			newcode += "\n"
+			if (g.Seen < 7) {
+				newcode += "(new)"
+			}
+		}
+		if (g.Code >= 10) {
+			code += "\nplayer_allow_altfire(true)"
+			newcode += "\n"
+			if (g.Seen < 10) {
+				newcode += "(new)"
+			}
+		}
+		if (g.Code >= 13) {
+			code += "\nplayer_set_firingspeed(12)"
+			newcode += "\n"
+			if (g.Seen < 13) {
+				newcode += "(new)"
+			}
+		}
 		if (g.Code >= 2) {
-			if (g.Code >= 7) {
-				code += "\nenemy_set_speed(2.5)"
-			} else {
-				code += "\nenemy_set_speed(2)"
+			code += "\nenemy_set_speed(2.5)"
+			newcode += "\n"
+			if (g.Seen < 2) {
+				newcode += "(new)"
 			}
 		}
 		if (g.Code >= 3) {
 			if (g.Code >= 8) {
-				if (g.Code >= 11) {
-					code += "\nenemy_set_hp(4)"
-				} else {
-					code += "\nenemy_set_hp(3)"
+				code += "\nenemy_set_hp(3)"
+				newcode += "\n"
+				if (g.Seen < 8) {
+					newcode += "(new)"
 				}
 			} else {
 				code += "\nenemy_set_hp(2)"
+				newcode += "\n"
+				if (g.Seen < 3) {
+					newcode += "(new)"
+				}
 			}
-		}
-		if (g.Code >= 10) {
-			code += "\nenemy_add_loot('gold')"
-		}
-		if (g.Code >= 13) {
-			code += "\nenemy_add_loot('heart')"
 		}
 		if (g.Code >= 4) {
 			if (g.Code >= 9) {
 				if (g.Code >= 12) {
-					code += "\ngold_set_value(4)"
+					code += "\ngold_set_value(8)"
+					newcode += "\n"
+					if (g.Seen < 12) {
+						newcode += "(new)"
+					}
 				} else {
-					code += "\ngold_set_value(3)"
+					code += "\ngold_set_value(4)"
+					newcode += "\n"
+					if (g.Seen < 9) {
+						newcode += "(new)"
+					}
 				}
 			} else {
 				code += "\ngold_set_value(2)"
+				newcode += "\n"
+				if (g.Seen < 4) {
+					newcode += "(new)"
+				}
 			}
 		}
 		code += "\n\nforever {"
-		if (g.Code >= 6) {
+		newcode += "\n\n"
+		if (g.Code >= 11) {
+			code += "\n    enemy = choose('slime', 'wisp', 'gold slime', 'gold wisp')"
+			code += "\n    spawn_enemy(enemy)"
+			newcode += "\n\n"
+			if (g.Seen < 11) {
+				newcode += "(new)"
+			}
+		} else if (g.Code >= 6) {
 			code += "\n    enemy = choose('slime', 'wisp')"
 			code += "\n    spawn_enemy(enemy)"
+			newcode += "\n\n"
+			if (g.Seen < 6) {
+				newcode += "(new)"
+			}
 		} else {
 			code += "\n    spawn_enemy('slime')"
+			newcode += "\n"
+			if (g.Seen < 0) {
+				newcode += "(new)"
+			}
 		}
 		if (g.Code >= 1) {
 			code += "\n    spawn_loot('gold')"
+			newcode += "\n"
+			if (g.Seen < 1) {
+				newcode += "(new)"
+			}
 		}
 		if (g.Code >= 5) {
 			code += "\n    spawn_loot('heart')"
+			newcode += "\n"
+			if (g.Seen < 5) {
+				newcode += "(new)"
+			}
 		}
 		if (g.Code >= 14) {
-			code += "\n    shoot()"
+			code += "\n    player_shoot()"
+			newcode += "\n"
+			if (g.Seen < 14) {
+				newcode += "(new)"
+			}
 		}
 		if (g.Code >= 15) {
 			code += "\n    break"
+			newcode += "\n"
+			if (g.Seen < 15) {
+				newcode += "(new)"
+			}
 		}
 		code += "\n}"
 		var comment = "//press spacebar to close the computer"
-		draw_dropshadow(250, 25, code, 0.6, white)
-		draw_dropshadow(250, 1000, comment, 0.6, green)
+		draw_dropshadow(220, 0, code, 0.6, white)
+		draw_dropshadow(120, 0, newcode, 0.6, red)
+		draw_dropshadow(220, 1000, comment, 0.6, green)
+		ds_list_destroy(important)
 	}
 }

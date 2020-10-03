@@ -39,6 +39,9 @@ if (room == rm_Game) {
 					yy = random_range(200, 2000)
 				}
 				var slime = instance_create_depth(xx, yy, 0, obj_Slime)
+				if (g.Seen >= 11) {
+					slime.Golden = choose(true, false)
+				}
 				if (g.Seen >= 6) {
 					slime.Wisp = choose(true, false)
 				}
