@@ -70,6 +70,26 @@ if (room == rm_Game) {
 		draw_dropshadow(90, 175, string(g.Gold), 1, white)
 	}
 
+	if (g.Code >= 1) {
+		draw_sprite_ext(spr_Disk, 0, 50, 1025, 0.4, 0.4, 0, -1, 1)
+		draw_dropshadow(90, 1000, g.Code - g.Seen, 1, white)
+	}
+	
+	draw_set_halign(fa_center)
+	
+	if (g.Seen >= -1) {
+		draw_sprite_ext(spr_Mouse, 0, 1775, 1000, 0.4, 0.4, 0, -1, 1)
+		draw_dropshadow(1775, 1025, "Wand", 0.6, white)
+	}
+
+	if (g.Seen >= 10) {
+		draw_sprite_ext(spr_Mouse, 1, 1850, 1000, 0.4, 0.4, 0, -1, 1)
+		draw_dropshadow(1850, 1025, "Alt", 0.6, white)
+	} else {
+		draw_sprite_ext(spr_Mouse, 1, 1850, 1000, 0.4, 0.4, 0, -1, 1)
+		draw_dropshadow(1850, 1025, "???", 0.6, white)
+	}
+
 	if (g.Inspect) {
 		draw_sprite(spr_Menu, 0, 0, 0)
 		draw_set_font(fnt_Code)
