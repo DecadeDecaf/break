@@ -1,6 +1,6 @@
 if (Wisp) {
 	if (Golden) {
-		sprite_index = spr_Wisp
+		sprite_index = spr_GoldWisp
 	} else {
 		sprite_index = spr_Wisp
 	}

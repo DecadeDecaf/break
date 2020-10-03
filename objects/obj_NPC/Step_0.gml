@@ -2,11 +2,11 @@ function dialogue_start() {
 	var dialogue = instance_create_depth(0, 0, -2500, obj_Dialogue)
 	if (Goblin && g.Gold >= Payment) {
 		g.Gold -= Payment
-		Payment = round(Payment * 1.25)
+		Payment = round(Payment * 1.5)
 		ds_list_copy(dialogue.Messages, Alts)
 		g.Code += 1
 	} else if (Thug && g.Kills >= Payment) {
-		Payment = round(Payment * 1.75)
+		Payment = round(Payment * 1.5)
 		ds_list_copy(dialogue.Messages, Alts)
 		g.Code += 1
 	} else if (Dark && g.Hearts >= Payment) {
