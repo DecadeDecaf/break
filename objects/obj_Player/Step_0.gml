@@ -86,6 +86,8 @@ if (!g.Talking) {
 			var bulletY = gunY + lengthdir_y(64, rot)
 			var bullet = instance_create_depth(bulletX, bulletY, 0, obj_Bullet)
 			bullet.Direction = rot
+			audio_sound_pitch(snd_Shoot, random_range(0.9, 1.1))
+			audio_play_sound(snd_Shoot, 1, false)
 			Cooldown = 24
 			if (g.Seen >= 7) {
 				Cooldown = 18
@@ -98,6 +100,8 @@ if (!g.Talking) {
 			var bulletY = gunY + lengthdir_y(64, rot)
 			var bullet = instance_create_depth(bulletX, bulletY, 0, obj_Bullet)
 			bullet.Direction = rot + random_range(-45, 45)
+			audio_sound_pitch(snd_Shoot, random_range(0.9, 1.1))
+			audio_play_sound(snd_Shoot, 1, false)
 			Cooldown = 12
 			if (g.Seen >= 7) {
 				Cooldown = 9
@@ -113,5 +117,7 @@ if (!g.Talking) {
 		var bulletY = gunY + lengthdir_y(64, rot)
 		var bullet = instance_create_depth(bulletX, bulletY, 0, obj_Bullet)
 		bullet.Direction = rot
+		audio_sound_pitch(snd_Shoot, random_range(0.9, 1.1))
+		audio_play_sound(snd_Shoot, 1, false)
 	}
 }

@@ -36,6 +36,7 @@ if (interact && dis < 96 && !g.Talking) {
 		g.Inspect = true
 		g.Talking = true
 		audio_play_sound(snd_ComputerOn, 1, false)
+		audio_stop_sound(snd_ComputerOff)
 	} else {
 		dialogue_start()
 	}

@@ -41,8 +41,9 @@ if (!g.Talking) {
 
 dis = point_distance(x, y, player.x, player.y)
 
-if (dis < 32) {
+if (dis < 64) {
 	if (g.Flash <= 0) {
+		audio_play_sound(snd_Hurtmarker, 1, false)
 		g.Hearts -= 1
 		g.Flash = 60
 		if (g.Hearts <= 0) {
@@ -62,7 +63,9 @@ if (place_meeting(x, y, bullet)) {
 	if (!bullet.Wisp) {
 		HP -= 1
 		bullet.Life = 0
+		audio_play_sound(snd_Hitmarker, 1, false)
 		if (HP <= 0) {
+			audio_play_sound(snd_Killmarker, 1, false)
 			repeat (5) {
 				var xx = x + random_range(-16, 16)
 				var yy = y + random_range(-32, 0)

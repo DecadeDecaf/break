@@ -1,6 +1,6 @@
 {
   "compression": 2,
-  "volume": 0.5,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_ComputerOff.ogg",
-  "duration": 1.69513607,
+  "soundFile": "snd_Hitmarker.ogg",
+  "duration": 0.04534,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_ComputerOff",
+  "name": "snd_Hitmarker",
   "tags": [],
   "resourceType": "GMSound",
 }

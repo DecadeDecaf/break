@@ -5,5 +5,6 @@ if (space) {
 		g.Goodbye = true
 		g.Seen = g.Code
 		audio_play_sound(snd_ComputerOff, 1, false)
+		audio_stop_sound(snd_ComputerOn)
 	}
 }

@@ -10,14 +10,14 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_ComputerOff.ogg",
+  "soundFile": "snd_Shoot.ogg",
   "duration": 1.69513607,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
-  "name": "snd_ComputerOff",
+  "name": "snd_Shoot",
   "tags": [],
   "resourceType": "GMSound",
 }

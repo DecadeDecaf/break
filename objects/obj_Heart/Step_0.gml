@@ -16,7 +16,7 @@ if (dis < 256) {
 	y += lengthdir_y(suck, dir)
 }
 
-if (dis < 32) {
+if (dis < 64) {
 	g.Hearts += 1
 	g.Hearts = min(g.Hearts, 3)
 	repeat (4) {

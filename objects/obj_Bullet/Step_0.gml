@@ -5,6 +5,9 @@ if (Life <= 0) {
 		instance_destroy()
 	}
 	exit
+} else if (g.Talking) {
+	Life = 0
+	exit
 }
 
 x += lengthdir_x(Speed, Direction)
@@ -17,6 +20,7 @@ var dis = point_distance(x, y, player.x, player.y - 48)
 
 if (dis < 48) {
 	if (g.Flash <= 0) {
+		audio_play_sound(snd_Hurtmarker, 1, false)
 		g.Hearts -= 1
 		g.Flash = 60
 		if (g.Hearts <= 0) {

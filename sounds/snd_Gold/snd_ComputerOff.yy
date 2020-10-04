@@ -1,6 +1,6 @@
 {
-  "compression": 2,
-  "volume": 0.5,
+  "compression": 0,
+  "volume": 1.0,
   "preload": false,
   "bitRate": 128,
   "sampleRate": 44100,
@@ -10,8 +10,8 @@
     "name": "audiogroup_default",
     "path": "audiogroups/audiogroup_default",
   },
-  "soundFile": "snd_ComputerOff.ogg",
-  "duration": 1.69513607,
+  "soundFile": "snd_ComputerOff",
+  "duration": 0.0,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",

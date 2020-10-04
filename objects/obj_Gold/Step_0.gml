@@ -16,7 +16,7 @@ if (dis < 256) {
 	y += lengthdir_y(suck, dir)
 }
 
-if (dis < 32) {
+if (dis < 64) {
 	var value = 1
 	if (g.Seen >= 4) {
 		if (g.Seen >= 9) {
@@ -30,6 +30,7 @@ if (dis < 32) {
 		}
 	}
 	g.Gold += value
+	audio_play_sound(snd_Gold, 1, false)
 	repeat (4) {
 		var xx = x + random_range(-16, 16)
 		var yy = y + random_range(-32, 0)

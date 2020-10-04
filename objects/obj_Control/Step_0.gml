@@ -28,7 +28,7 @@ if (m) {
 }
 
 if (room == rm_Game) {
-	if (!g.Inspect) {
+	if (!g.Talking) {
 		g.FrameCount += 1
 		if (g.FrameCount % 180 == 0) {
 			if (g.Seen >= 0 && instance_number(obj_Slime) < 10) {
