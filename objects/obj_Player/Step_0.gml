@@ -102,12 +102,12 @@ if (!g.Talking) {
 			bullet.Direction = rot + random_range(-45, 45)
 			audio_sound_pitch(snd_Shoot, random_range(0.9, 1.1))
 			audio_play_sound(snd_Shoot, 1, false)
-			Cooldown = 12
+			Cooldown = 9
 			if (g.Seen >= 7) {
-				Cooldown = 9
+				Cooldown = 6
 			}
 			if (g.Seen >= 13) {
-				Cooldown = 6
+				Cooldown = 4
 			}
 		}
 	}

@@ -19,11 +19,12 @@ if (dis < 256) {
 if (dis < 64) {
 	g.Hearts += 1
 	g.Hearts = min(g.Hearts, 3)
+	audio_play_sound(snd_Gold, 1, false)
 	repeat (4) {
 		var xx = x + random_range(-16, 16)
 		var yy = y + random_range(-32, 0)
 		var part = instance_create_depth(xx, yy, 0, obj_Particle)
-		part.image_index = 2
+		part.image_index = 3
 		part.Life = 10
 		part.Direction = dir + random_range(135, 225)
 	}
