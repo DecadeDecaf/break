@@ -18,7 +18,7 @@ Speed = min(Speed, 10)
 
 var dis = point_distance(x, y, player.x, player.y - 48)
 
-if (dis < 48) {
+if (dis < 48 && Wisp) {
 	if (g.Flash <= 0) {
 		audio_play_sound(snd_Hurtmarker, 1, false)
 		g.Hearts -= 1
