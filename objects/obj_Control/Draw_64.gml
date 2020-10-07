@@ -98,23 +98,24 @@ if (room == rm_Game) {
 		var newcode = ""
 		var important = ds_list_create()
 		if (g.Code >= 7) {
-			code += "\nplayer_set_firingspeed(18)"
-			newcode += "\n"
-			if (g.Seen < 7) {
-				newcode += "(new)"
+			if (g.Code >= 13) {
+				code += "\nplayer_set_firingspeed(12)"
+				newcode += "\n"
+				if (g.Seen < 13) {
+					newcode += "(new)"
+				}
+			} else {
+				code += "\nplayer_set_firingspeed(18)"
+				newcode += "\n"
+				if (g.Seen < 7) {
+					newcode += "(new)"
+				}
 			}
 		}
 		if (g.Code >= 10) {
 			code += "\nplayer_allow_altfire(true)"
 			newcode += "\n"
 			if (g.Seen < 10) {
-				newcode += "(new)"
-			}
-		}
-		if (g.Code >= 13) {
-			code += "\nplayer_set_firingspeed(12)"
-			newcode += "\n"
-			if (g.Seen < 13) {
 				newcode += "(new)"
 			}
 		}
@@ -168,17 +169,19 @@ if (room == rm_Game) {
 		if (g.Code >= 11) {
 			code += "\n    enemy = choose('slime', 'wisp', 'gold slime', 'gold wisp')"
 			code += "\n    spawn_enemy(enemy)"
-			newcode += "\n\n"
+			newcode += "\n"
 			if (g.Seen < 11) {
 				newcode += "(new)"
 			}
+			newcode += "\n"
 		} else if (g.Code >= 6) {
 			code += "\n    enemy = choose('slime', 'wisp')"
 			code += "\n    spawn_enemy(enemy)"
-			newcode += "\n\n"
+			newcode += "\n"
 			if (g.Seen < 6) {
 				newcode += "(new)"
 			}
+			newcode += "\n"
 		} else {
 			code += "\n    spawn_enemy('slime')"
 			newcode += "\n"
